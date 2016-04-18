@@ -233,7 +233,31 @@ refBook.printItem();
 //class expressions   hmm don't likeit
 //
 
+//
+//modules and namespaces
+//
 
 
+namespace  MyNameSpace{
+    
+    export function MyFunction(name: string){
+        
+    }
+    
+    
+    //nested
+    export namespace Cards{
+        export function MyCardFunction(name: string){
+            
+        }
+    }
+    
+    
+}
+MyNameSpace.MyFunction('my funct');
+MyNameSpace.Cards.MyCardFunction('my name');
 
+//
 
+//triiple slash reference
+///<reference path="membership.ts" />
