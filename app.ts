@@ -236,7 +236,9 @@ refBook.printItem();
 //
 //modules and namespaces
 //
-
+// namespace is now the equivalent of the internal module
+// do not use it if you are building the file to be a module
+// if you want it to be a module just remove the namespace
 
 namespace  MyNameSpace{
     
@@ -261,3 +263,26 @@ MyNameSpace.Cards.MyCardFunction('my name');
 
 //triiple slash reference
 ///<reference path="membership.ts" />
+
+//export statement
+//don't have to specifically decorate the function/class with export
+//  the as will export with a name or a different name)
+export{PrintBook, ReferenceItem as MyStuff};
+
+//importing from a module
+//import{blah, blah as myjunk} from './blah'; 
+//import * as mag from './blah'    //this will import everything
+
+//if a class is surrounded by a namespace, then to use it as a module
+// you will need to clean it up by removing namespace
+//
+
+//modules are the future - so don't use namespace, make eveything 
+// a module.
+
+// can have one default export
+export default class{
+    
+}
+//import MyDefaultClass from './myclass';   //no curly brace needed
+//var myClassImported = new MyDefaultClass();
