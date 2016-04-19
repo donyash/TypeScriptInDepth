@@ -5,5 +5,5 @@
 
 	// Controls the delay in ms after which a dirty file is saved automatically. Only applies when "files.autoSave" is set to "afterDelay"
 	//,"files.autoSaveDelay": 1000
-
+"http.proxy": "http://proxyhost.gasco.com:8080"
 }
