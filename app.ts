@@ -240,24 +240,24 @@ refBook.printItem();
 // do not use it if you are building the file to be a module
 // if you want it to be a module just remove the namespace
 
-namespace  MyNameSpace{
+// namespace  MyNameSpace{
     
-    export function MyFunction(name: string){
+//     export function MyFunction(name: string){
         
-    }
+//     }
     
     
-    //nested
-    export namespace Cards{
-        export function MyCardFunction(name: string){
+//     //nested
+//     export namespace Cards{
+//         export function MyCardFunction(name: string){
             
-        }
-    }
+//         }
+//     }
     
     
-}
-MyNameSpace.MyFunction('my funct');
-MyNameSpace.Cards.MyCardFunction('my name');
+// }
+// MyNameSpace.MyFunction('my funct');
+// MyNameSpace.Cards.MyCardFunction('my name');
 
 //
 
@@ -267,7 +267,7 @@ MyNameSpace.Cards.MyCardFunction('my name');
 //export statement
 //don't have to specifically decorate the function/class with export
 //  the as will export with a name or a different name)
-export{PrintBook, ReferenceItem as MyStuff};
+//export{PrintBook, ReferenceItem as MyStuff};
 
 //importing from a module
 //import{blah, blah as myjunk} from './blah'; 
@@ -281,9 +281,9 @@ export{PrintBook, ReferenceItem as MyStuff};
 // a module.
 
 // can have one default export
-export default class{
-    
-}
+//export default class{
+//    
+//}
 //import MyDefaultClass from './myclass';   //no curly brace needed
 //var myClassImported = new MyDefaultClass();
 
@@ -313,7 +313,7 @@ var someMag = LogAndReturn<Magazine>(newMag);
 //
 //above example not quite correct
 //
-export function Purge<T> ( inventory: Array<T>): Array<T>{
+function Purge<T> ( inventory: Array<T>): Array<T>{
     
     return inventory.splice(2, inventory.length);
 }
@@ -329,3 +329,23 @@ purged.forEach(book => console.log(book.title));
 
 var purgedNums: Array<number> = Purge<number>([1, 2, 3, 4]);
 console.log(purgedNums);
+
+//generic interfaces
+
+interface Inventory<T>{
+    //getNewestItem: () => T;
+    addItem: (newItem: T) => void;
+    //getAllItems: () => Array<T>;
+}
+var bookInventory: Inventory<BookNook>;
+
+//populate the inventory here:  (commented out for example)
+//var allBooks: Array<BookNook> = bookInventory.getAllItems();
+
+//generic Classes
+class Catalog<T> implements Inventory<T>{
+    //ommited other members for example
+    addItem(): void {console.log('added item');}
+}
+//generic constraints
+// go over when actually needed//
