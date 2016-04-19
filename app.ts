@@ -286,3 +286,46 @@ export default class{
 }
 //import MyDefaultClass from './myclass';   //no curly brace needed
 //var myClassImported = new MyDefaultClass();
+
+//
+//generic functions
+//
+
+function LogAndReturn<T> (thing: T): T{
+    console.log(thing);
+    return thing;   
+}
+
+var someString: string = LogAndReturn<string>('log it');
+
+class Magazine{
+    constructor(public title: string){
+    }
+}
+class BookNook{
+    id: number;
+    title: string
+    constructor(){}
+}
+
+var newMag:Magazine = new Magazine("my title");
+var someMag = LogAndReturn<Magazine>(newMag);
+//
+//above example not quite correct
+//
+export function Purge<T> ( inventory: Array<T>): Array<T>{
+    
+    return inventory.splice(2, inventory.length);
+}
+
+var inventory: Array<BookNook> = [
+    {id: 1, title: 'Howdy one'},
+    {id: 2, title: 'Howdy two'},
+    {id: 3, title: 'Howdy three'},
+    {id: 4, title: 'Howdy four'} ];
+    
+var purged:Array<BookNook> = Purge<BookNook>(inventory);
+purged.forEach(book => console.log(book.title));
+
+var purgedNums: Array<number> = Purge<number>([1, 2, 3, 4]);
+console.log(purgedNums);
